@@ -1,0 +1,141 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.gridview{
+	-fx-background-color: transparent;
+	-fx-alignment: left;
+	-fx-border-color: #1E90FF;
+	-fx-border-radius: 5px;
+	-fx-border-width: 0.1px;
+	-fx-font-size: 13;
+	-fx-valignment: center;
+
+
+}
+.gridview .gridcolumn{
+	-fx-font-weight: 300;
+	-fx-background-color: #fff;
+	-fx-border-color: #1E90FF;
+	-fx-border-width: 0.1px;
+	-fx-text-fill: #3e3e3e;
+	-fx-valignment: center;
+}
+.profile-grid{
+	-fx-font-weight: 300;
+	-fx-background-color: #fff;
+	-fx-border-color: #FFF;
+	-fx-border-width: 0.1px;
+	-fx-text-fill: #3e3e3e;
+	-fx-valignment: center;
+}
+.profile-grid .gridcolumn{
+	-fx-font-weight: 300;
+	-fx-background-color: #fff;
+	-fx-border-color: #FFF;
+	-fx-border-width: 0.1px;
+	-fx-text-fill: #3e3e3e;
+	-fx-valignment: center;
+}
+.fridview .not-btn{
+	-fx-padding: 7px 10px;
+}
+.scroll-bar {
+  	-fx-background-color: #fff;
+  	-fx-color: #fff;
+}
+.combo-box {
+  	-fx-color: #1E90FF;
+  	-fx-background-color: #fff;
+  	-fx-border-color: #1E90FF;
+  	-fx-border-radius: 5px;
+	-fx-border-width: 0.2px;
+	-fx-padding: 0 0 0 30px;
+}
+.search-field{
+	-fx-color: #1E90FF;
+  	-fx-background-color: #fff;
+  	-fx-border-color: #1E90FF;
+  	-fx-border-radius: 5px;
+	-fx-border-width: 0.2px;
+}
+.input{
+	-fx-background-color: #fff;
+	-fx-border-color: #9A9A9A;
+  	-fx-border-radius: 5px;
+	-fx-border-width: 0.5px;
+}
+.choice-box{
+	-fx-border-width: 0.5px;
+	-fx-border-color: #BCBCBC;
+	-fx-border-radius: 5px;
+	-fx-background-color: #fff;
+}
+.nav-btn{
+	-fx-background-color:  #1E90FF;
+	-fx-padding: 8px 10px;
+	-fx-pref-height: 40px;
+	-fx-background-radius: 0;
+}
+.nav-btn:hover{
+	-fx-background-color: #359BFF;
+}
+.cancel-btn{
+	-fx-background-color: #FFF;
+	-fx-background-radius: 20px;
+	-fx-border-color: #FFF;
+}
+.active{
+	-fx-background-color: #FFF;
+	-fx-color: #1E90FF;
+	-fx-text-fill: #1E90FF;
+}
+.active:hover{
+	-fx-background-color: #CCE0F8;
+}
+
+/* styles.css */
+/* Improved styles.css for ListView items */
+
+.list-cell {
+    -fx-background-color: linear-gradient(to right, #1E90FF, #5AD3D1); /* A gradient background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 16px; /* Slightly larger font size for better readability */
+    -fx-padding: 10px; /* Add padding around the text for better spacing */
+    -fx-alignment: center-left; /* Align the text and icon to the left */
+    -fx-graphic-text-gap: 10px; /* Space between the icon and the text */
+}
+
+.list-cell:filled:selected, .list-cell:filled:selected:hover {
+    -fx-background-color: linear-gradient(to right, #FC466B, #3F5EFB); /* A different gradient for selected items */
+    -fx-background-insets: 0, 0, 1, 2; /* Insets for background to create a layered effect */
+}
+
+.list-cell .graphic { /* Styling for the icon/graphic */
+    -fx-fill: white; /* If the graphic is an SVG, this will set its color to white */
+    -fx-padding: 5px; /* Adds some space around the icon */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0); /* Optional: Adds a subtle shadow to the icon for depth */
+}
+
+.list-cell .text { /* Additional styling for the text in the list cell, if needed */
+    -fx-padding: 0 0 0 5px; /* Adds some space between the icon and the text */
+}
+
+.btn-delete{
+ -fx-background-color: linear-gradient(to right, #FC466B, #3F5EFB);
+  -fx-background-insets: 0, 0, 1, 2;
+}
+.btn-delete:hover{
+ -fx-background-color: linear-gradient(to right, #FC466B, #3F5EFB);
+  -fx-background-insets: 0, 0, 1, 2;
+}
+.btn-update {
+ -fx-background-color: linear-gradient(to right, #2FDC43, #57EC73);
+  -fx-background-insets: 0, 0, 1, 2;
+}
+
+
+
+
+
+
+
+
+
