@@ -7,6 +7,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import estm.dsic.jee.Models.User;
+import estm.dsic.jee.UserSession;
 import estm.dsic.jee.services.AuthenticationService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -48,6 +49,7 @@ public class AuthenticationController {
             if (user != null) {
                 System.out.println("Authentication successful for user: " + user);
                 // Proceed with application navigation or other actions
+                UserSession.setCurrentUser(user);
                 navigateToUserScreen();
             } else {
                 System.out.println("Authentication failed.");

@@ -7,4 +7,5 @@ module estm.dsic.jee {
     opens estm.dsic.jee.controller to javafx.fxml;
 
     exports estm.dsic.jee;
+    exports estm.dsic.jee.Models;
 }
