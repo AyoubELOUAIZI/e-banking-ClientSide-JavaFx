@@ -40,8 +40,8 @@ public class AuthenticationController {
     public void handleLogin() {
         String email = email_login.getText();
         String password = password_login.getText();
-        //just for teesting
-        email="User1";
+        //just for testing
+        email="user1@gmail.com";
         password="password1";
 
         try {
