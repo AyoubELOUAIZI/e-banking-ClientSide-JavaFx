@@ -40,6 +40,9 @@ public class AuthenticationController {
     public void handleLogin() {
         String email = email_login.getText();
         String password = password_login.getText();
+        //just for teesting
+        email="User1";
+        password="password1";
 
         try {
             // Call the remote method to authenticate the user

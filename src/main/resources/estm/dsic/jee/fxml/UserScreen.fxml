@@ -34,7 +34,7 @@
                         <Label fx:id="bactype_toshow" layoutX="508.0" layoutY="42.0" prefHeight="17.0" prefWidth="205.0" text="2024/2025" textFill="WHITE" />
                         <ImageView fx:id="studentProfileImageView" fitHeight="60.0" fitWidth="60.0" layoutX="170.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/studentFemale.png" />
+                                <Image url="@../images" />
                             </image>
                         </ImageView>
                         <Line endX="1.0" endY="1.0" layoutX="510.0" layoutY="39.0" rotate="90.0" startX="-45.0" startY="1.0" stroke="#f7fdffa4" strokeMiterLimit="5.0" />
@@ -148,35 +148,6 @@
     <center>
         <AnchorPane prefHeight="640.0" prefWidth="1010.0" BorderPane.alignment="CENTER">
             <children>
-                <Pane fx:id="panelCurrentSoled" layoutX="-2.0" layoutY="-1.0" prefHeight="641.0" prefWidth="1021.0" style="-fx-background-color: #ffffff;">
-                    <children>
-                        <AnchorPane cacheShape="false" layoutX="22.0" layoutY="39.0" maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="440.0" minWidth="0.0" prefHeight="562.0" prefWidth="962.0" snapToPixel="false" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 0); -fx-background-radius: 8; -fx-background-color: fff;">
-                            <children>
-                                <ImageView fx:id="backgroundImageQuizView1" fitHeight="544.0" fitWidth="450.0" layoutX="506.0" layoutY="11.0" pickOnBounds="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="506.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="11.0">
-                                    <image>
-                                        <Image url="@../images/currentSold.png" />
-                                    </image>
-                                </ImageView>
-                                <Line endX="285.70703125" layoutX="197.0" layoutY="261.0" startX="-100.0" stroke="#1699eb" />
-                                <Label ellipsisString="" layoutX="112.0" layoutY="225.0" prefHeight="21.0" prefWidth="152.0" text="Mon solde actuel est :" textFill="#7b7b7b" textOverrun="WORD_ELLIPSIS" wrapText="true">
-                                    <font>
-                                        <Font size="15.0" />
-                                    </font>
-                                </Label>
-                        <Label fx:id="p5QuestionIndex2" layoutX="271.0" layoutY="200.0" text="540.00">
-                           <font>
-                              <Font name="Segoe UI" size="50.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="p5QuestionIndex21" layoutX="423.0" layoutY="220.0" text="DH">
-                           <font>
-                              <Font name="Segoe UI" size="28.0" />
-                           </font>
-                        </Label>
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </Pane>
             <Pane fx:id="panelTransfare" layoutX="-2.0" layoutY="-3.0" prefHeight="641.0" prefWidth="1022.0" style="-fx-background-color: #ffffff;">
                <children>
                   <AnchorPane cacheShape="false" layoutX="22.0" layoutY="39.0" maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="440.0" minWidth="0.0" prefHeight="562.0" prefWidth="962.0" snapToPixel="false" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 0); -fx-background-radius: 8; -fx-background-color: fff;">
@@ -262,7 +233,7 @@
                            </font>
                         </Label>
                         <Label layoutX="137.0" layoutY="252.0" text="Enter montant du retrait  :" />
-                        <TextField fx:id="tfQuizPassword11" layoutX="137.0" layoutY="274.0" prefHeight="30.0" prefWidth="300.0" promptText="montant du retrait " styleClass="input" />
+                        <TextField fx:id="tfWithdrawAmount" layoutX="137.0" layoutY="274.0" prefHeight="30.0" prefWidth="300.0" promptText="montant du retrait " styleClass="input" />
                         <Button layoutX="313.0" layoutY="343.0" mnemonicParsing="false" onAction="#handelWithdraw" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: #1E90FF;" text="Effectuer un retrait" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -272,6 +243,35 @@
                   </AnchorPane>
                </children>
             </Pane>
+                <Pane fx:id="panelCurrentSoled" layoutX="-2.0" layoutY="-1.0" prefHeight="641.0" prefWidth="1021.0" style="-fx-background-color: #ffffff;">
+                    <children>
+                        <AnchorPane cacheShape="false" layoutX="22.0" layoutY="39.0" maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="440.0" minWidth="0.0" prefHeight="562.0" prefWidth="962.0" snapToPixel="false" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 0); -fx-background-radius: 8; -fx-background-color: fff;">
+                            <children>
+                                <ImageView fx:id="backgroundImageQuizView1" fitHeight="544.0" fitWidth="450.0" layoutX="506.0" layoutY="11.0" pickOnBounds="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="506.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="11.0">
+                                    <image>
+                                        <Image url="@../images/currentSold.png" />
+                                    </image>
+                                </ImageView>
+                                <Line endX="285.70703125" layoutX="197.0" layoutY="261.0" startX="-100.0" stroke="#1699eb" />
+                                <Label ellipsisString="" layoutX="112.0" layoutY="225.0" prefHeight="21.0" prefWidth="152.0" text="Mon solde actuel est :" textFill="#7b7b7b" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                        <Label fx:id="tCurrentSold" layoutX="271.0" layoutY="200.0" text="540.00">
+                           <font>
+                              <Font name="Segoe UI" size="50.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="p5QuestionIndex21" layoutX="423.0" layoutY="220.0" text="DH">
+                           <font>
+                              <Font name="Segoe UI" size="28.0" />
+                           </font>
+                        </Label>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </Pane>
             </children>
         </AnchorPane>
     </center>
