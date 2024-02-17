@@ -41,8 +41,8 @@ public class AuthenticationController {
         String email = email_login.getText();
         String password = password_login.getText();
         //just for testing
-        email="user1@gmail.com";
-        password="password1";
+//        email="user1@gmail.com";
+//        password="password1";
 
         try {
             // Call the remote method to authenticate the user
