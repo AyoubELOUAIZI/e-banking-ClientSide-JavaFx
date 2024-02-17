@@ -8,6 +8,7 @@ import estm.dsic.jee.services.TransactionService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.print.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -48,6 +49,8 @@ public class UserController {
     public TableColumn cType;
     public TableColumn cMount;
     public TableColumn cDate;
+    public Button printBtn;
+    public Pane paneReleverBancaire;
     private User currentUser;
 
     private  AccountService accountService = (AccountService) Naming.lookup("rmi://localhost:52369/AccountService");
@@ -71,6 +74,8 @@ public class UserController {
             cType.setCellValueFactory(new PropertyValueFactory<>("transactionType"));
             cMount.setCellValueFactory(new PropertyValueFactory<>("amount"));
             cDate.setCellValueFactory(new PropertyValueFactory<>("transactionDate"));
+
+            printBtn.setOnAction(event -> printPanel(paneReleverBancaire));
         }
     }
     
@@ -240,6 +245,19 @@ public class UserController {
         }else{
             //bad message
             System.out.println("isDeposetOk not ok");
+        }
+    }
+
+    private void printPanel(Pane panelResultToPrint) {
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job != null) {
+            boolean success = job.showPrintDialog(panelResultToPrint.getScene().getWindow());
+            if (success) {
+                boolean printed = job.printPage(panelResultToPrint);
+                if (printed) {
+                    job.endJob();
+                }
+            }
         }
     }
 }
