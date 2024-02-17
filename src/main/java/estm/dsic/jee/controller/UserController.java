@@ -1,18 +1,17 @@
 package estm.dsic.jee.controller;
 
+import estm.dsic.jee.Models.Transaction;
 import estm.dsic.jee.Models.User;
 import estm.dsic.jee.UserSession;
 import estm.dsic.jee.services.AccountService;
-import estm.dsic.jee.services.AuthenticationService;
+import estm.dsic.jee.services.TransactionService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -22,6 +21,9 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class UserController {
 
@@ -37,9 +39,19 @@ public class UserController {
     public TextField tfWithdrawAmount;
     public TextField tfAmountToSend;
     public TextField tfReciverEmail;
+    public Label tnowdate;
+    public Label email_toshow1;
+    public Label tNumberhistoryOperations;
+    public TableView tvHistory;
+    public TableColumn cNum;
+    public TableColumn cCompt;
+    public TableColumn cType;
+    public TableColumn cMount;
+    public TableColumn cDate;
     private User currentUser;
 
-    private AccountService accountService = (AccountService) Naming.lookup("rmi://localhost:52369/AccountService");
+    private  AccountService accountService = (AccountService) Naming.lookup("rmi://localhost:52369/AccountService");
+    private  TransactionService transactionService = (TransactionService) Naming.lookup("rmi://localhost:52369/TransactionService");
 
     public UserController() throws MalformedURLException, NotBoundException, RemoteException {
     }
@@ -52,6 +64,13 @@ public class UserController {
         if (currentUser != null) {
             email_toshow.setText(currentUser.getUsername());
             tCurrentSold.setText(getCurrentBalance());
+
+            // Initialize the TableView columns
+            cNum.setCellValueFactory(new PropertyValueFactory<>("transactionId"));
+            cCompt.setCellValueFactory(new PropertyValueFactory<>("accountId"));
+            cType.setCellValueFactory(new PropertyValueFactory<>("transactionType"));
+            cMount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+            cDate.setCellValueFactory(new PropertyValueFactory<>("transactionDate"));
         }
     }
     
@@ -99,8 +118,39 @@ public class UserController {
         panelDeposer.toFront();
     }
 
-    public void handelGoToHistorique(ActionEvent actionEvent) {
+    public void handelGoToHistorique(ActionEvent actionEvent) throws RemoteException {
         panelHistorique.toFront();
+        // Set the current date
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String formattedDate = now.format(formatter);
+        tnowdate.setText(formattedDate);
+        // Set the email
+        email_toshow1.setText(currentUser.getUsername());
+
+        //fitch the history from the server using rmi
+        List<Transaction> history = transactionService.getTransactionHistory(currentUser.getUserId());
+        // Set the number of history operations
+        tNumberhistoryOperations.setText(String.valueOf(history.size()));
+
+        // Print the history
+        for (Transaction transaction : history) {
+            String transactionString = String.format("Identifiant de transaction: %d, Compte: %d, Type de transaction: %s, Montant: %s, La date: %s",
+                    transaction.getTransactionId(),
+                    transaction.getAccountId(),
+                    transaction.getTransactionType(),
+                    transaction.getAmount(),
+                    transaction.getTransactionDate());
+            System.out.println(transactionString);
+        }
+
+        //fill the table of the history for the user
+        // Clear any existing items in the table
+        tvHistory.getItems().clear();
+
+        // Add the fetched history to the table
+        tvHistory.getItems().addAll(history);
+
     }
 
 //    public void handelSendMoney(ActionEvent actionEvent) throws RemoteException {

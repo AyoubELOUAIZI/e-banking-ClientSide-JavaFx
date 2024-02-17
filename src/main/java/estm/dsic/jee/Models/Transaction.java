@@ -1,19 +1,18 @@
 package estm.dsic.jee.Models;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Transaction implements Serializable {
     private int transactionId;
     private int accountId;
     private String transactionType;
-    private BigDecimal amount;
-    private Date transactionDate;
+    private Double amount;
+    private LocalDateTime transactionDate;
 
     public Transaction() {}
 
-    public Transaction(int transactionId, int accountId, String transactionType, BigDecimal amount, Date transactionDate) {
+    public Transaction(int transactionId, int accountId, String transactionType, Double amount, LocalDateTime transactionDate) {
         this.transactionId = transactionId;
         this.accountId = accountId;
         this.transactionType = transactionType;
@@ -46,20 +45,20 @@ public class Transaction implements Serializable {
         this.transactionType = transactionType;
     }
 
-    public BigDecimal getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    public Date getTransactionDate() {
+    public LocalDateTime getTransactionDate() {
         return transactionDate;
     }
 
-    public void setTransactionDate(Date transactionDate) {
-        this.transactionDate = transactionDate;
+    public void setTransactionDate(LocalDateTime localDateTime) {
+        this.transactionDate = localDateTime;
     }
 }
 
